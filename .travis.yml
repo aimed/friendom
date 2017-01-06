@@ -11,4 +11,8 @@ cache:
 before_script:
   - yarn
 
-script: npm run dist
+script: npm run build
+
+after_success:
+  - node_modules/.bin/surge -p ./build/ -d https://friendom.surge.sh
+
