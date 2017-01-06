@@ -6,7 +6,7 @@
   "author": "Maximilian Täschner <revdemiat@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dist": "node_modules/.bin/webpack && surge -p build/ -d https://friendom.surge.sh",
+    "dist": "node_modules/.bin/webpack && node_modules/.bin/surge -p build/ -d https://friendom.surge.sh",
     "dev": "node_modules/.bin/webpack-dev-server"
   },
   "devDependencies": {
@@ -19,6 +19,7 @@
     "eslint-config-standard": "^6.2.1",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1",
+    "surge": "^0.18.0",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
   }
