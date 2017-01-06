@@ -1,6 +1,5 @@
 html,
 body {
-  height: 100%;
   margin: 0;
   padding: 0;
 }
@@ -15,15 +14,11 @@ body {
 }
 
 .container {
-  display: table;
-  height: 100%;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
-}
-
-.container__inner {
-  vertical-align: middle;
-  display: table-cell;
+  flex-direction: column;
 }
 
 .the-episode__season-episode {
