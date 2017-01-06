@@ -1,0 +1,62 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Kalam', cursive;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 3px 5px #000000;
+  background-image: url(https://image.tmdb.org/t/p/original/sCx2r2bw49OqxnjWaU9DsPwdR0C.jpg);
+  background-size: cover;
+}
+
+.container {
+  display: table;
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.container__inner {
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.the-episode__season-episode {
+  font-size: 4em;
+}
+
+.the-episode__episode-title {
+  letter-spacing: 4;
+  font-size: 3em;
+}
+
+/* Add quotes to the title */
+.the-episode__episode-title::before {
+  content: "\"";
+}
+
+.the-episode__episode-title::after {
+  content: "\"";
+}
+
+/* Colorize dots friends style */
+i::before {
+  content: ".";
+}
+
+i:nth-of-type(n) {
+  color: #EA4D39;
+}
+
+i:nth-of-type(2n) {
+  color: #02AFF5;
+}
+
+i:nth-of-type(3n) {
+  color: #F2C73F;
+}
