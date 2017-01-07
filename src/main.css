@@ -35,6 +35,10 @@ body {
   justify-content: space-between;
 }
 
+.the-details i {
+  font-size: 2em;
+}
+
 .the-episode {
   color: #ffffff;
   text-shadow: 0 3px 5px #000000;
