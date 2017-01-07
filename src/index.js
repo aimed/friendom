@@ -18,6 +18,7 @@ const randomInArray = array => array[~~(Math.random() * array.length - 1)]
  * The render method used to render information about the episode.
  */
 const render = Renderer({
+  loader: (node, episode) => { episode.summary && node.classList.add('hidden') }
 })
 
 /**

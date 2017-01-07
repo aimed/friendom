@@ -15,14 +15,9 @@ export default function Renderer (map) {
     // Apply custom render methods
     for (const element in map) {
       if (map.hasOwnProperty(element)) {
-        const fn = map[element]
-        const dom = document.getElementById(element)
-        const value = fn(episode, dom)
-
-        // If the returned value is a string etc, replace the nodes innerText with the value.
-        if (value !== undefined) {
-          dom.innerText = value + ''
-        }
+        const fn = node => map[element](node, episode)
+        const nodes = document.getElementsByClassName(element)
+        Array.prototype.forEach.call(nodes, fn)
       }
     }
 
