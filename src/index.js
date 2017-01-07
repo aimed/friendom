@@ -14,11 +14,21 @@ const episodes = seasons.map(season => season.episodes).reduce((p, c) => [...p, 
  */
 const randomInArray = array => array[~~(Math.random() * array.length - 1)]
 
+const hideAnimated = node => {
+  const listener = node.addEventListener('animationend', () => {
+    node.removeEventListener('animationend', listener)
+    node.classList.remove('stage-hidden')
+    node.classList.add('hidden')
+  }, false)
+  node.classList.add('stage-hidden')
+}
+
 /**
  * The render method used to render information about the episode.
  */
 const render = Renderer({
-  loader: (node, episode) => { episode.summary && node.classList.add('hidden') }
+  loader: (node, episode) => { episode.summary && hideAnimated(node) },
+  hiddenInitial: (node, episode) => { episode.summary && node.classList.remove('hiddenInitial') }
 })
 
 /**

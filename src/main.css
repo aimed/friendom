@@ -16,6 +16,10 @@ body {
   display: none;
 }
 
+.stage-hidden {
+  animation: hide 1.5s ease-in;
+}
+
 .loader {
   position: absolute;
   top: 0;
@@ -34,9 +38,17 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.loader__content > i {
-  transform: translateY(0%);
+.loader__content i::before {
   animation: 1s ease-in-out jump infinite;
+  animation-delay: inherit;
+}
+
+.loader__content i:nth-of-type(n) {
+  animation-delay: 0ms;
+}
+
+.loader__content i:nth-of-type(2n) {
+  animation-delay: 500ms;
 }
 
 .container {
@@ -141,6 +153,7 @@ body {
 /* Colorize dots friends style */
 i::before {
   content: ".";
+  display: inline-block;
 }
 
 i:nth-of-type(n) {
@@ -185,12 +198,24 @@ i:nth-of-type(3n) {
 
 @keyframes jump {
   0% {
-    transform: translateY(0%);
+    transform: translateY(0em);
   }
   50% {
-    transform: translateY(-200%);
+    transform: translateY(0.5em);
   }
   100% {
-    transform: translateY(0%);
+    transform: translateY(0em);
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
