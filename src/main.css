@@ -17,7 +17,7 @@ body {
 }
 
 .stage-hidden {
-  animation: hide 1.5s ease-in;
+  animation: hide 1s ease-in;
 }
 
 .loader {
