@@ -4,21 +4,76 @@ body {
   padding: 0;
 }
 
-body {
-  font-family: 'Kalam', cursive;
-  text-align: center;
-  color: #ffffff;
-  text-shadow: 0 3px 5px #000000;
-  background-image: url(https://image.tmdb.org/t/p/original/sCx2r2bw49OqxnjWaU9DsPwdR0C.jpg);
-  background-size: cover;
-}
-
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   flex-direction: column;
+  position: relative;
+}
+
+.grid {
+  padding: 0.5em;
+}
+
+.grid__item {
+  padding: 2em;
+}
+
+.the-details {
+  color: #3A3D42;
+  font-family: 'Roboto', sans-serif;
+  max-width: 800px;
+  margin: auto;
+}
+
+.the-details__summary {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.the-episode {
+  color: #ffffff;
+  text-shadow: 0 3px 5px #000000;
+  background-image: url(https://image.tmdb.org/t/p/original/sCx2r2bw49OqxnjWaU9DsPwdR0C.jpg);
+  background-size: cover;
+  font-family: 'Kalam', cursive;
+  text-align: center;
+  /* Leave enough space to display the absolutely positioned scroll indicator. */
+  /* padding-bottom: 3em; */
+}
+
+.the-episode #tmdb-watermark {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  width: auto;
+  height: 3em;
+}
+
+/* Scroll indicator */
+
+#mouse {
+  fill: #ffffff;
+}
+
+#ScrollWheel {
+  animation: 2s ease-in-out scroll infinite;
+}
+
+.the-episode__scroll-indicator {
+  position: absolute;
+  bottom: 1em;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.5;
+}
+
+.the-episode__scroll-indicator > svg {
+  width: auto;
+  height: 2em;
 }
 
 .the-episode__season-episode {
@@ -54,4 +109,32 @@ i:nth-of-type(2n) {
 
 i:nth-of-type(3n) {
   color: #F2C73F;
+}
+
+/* Animations */
+@keyframes scroll {
+  0% {
+    transform: translateY(0%);
+    opacity: 0;
+  }
+
+  10% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+
+  70% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+
+  80% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 0;
+  }
 }
