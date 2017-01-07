@@ -39,7 +39,7 @@ function selectEpisode () {
   fetchEpisodeDetails(episode.episode, episode.season)
   .then(data => {
     const episodeExtended = Object.assign(episode, {
-      summary: data.overview
+      summary: data.overview || 'No summary availiable ☹️.'
     })
     render(episodeExtended)
   })

@@ -38,6 +38,7 @@ body {
 }
 
 .the-details i {
+  /* To make the friend style dots pop out a bit more, we increase the font size for the otherwise small text */
   font-size: 2em;
 }
 
