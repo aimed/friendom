@@ -26,6 +26,7 @@ body {
   font-family: 'Roboto', sans-serif;
   max-width: 800px;
   margin: auto;
+  overflow: hidden;
 }
 
 .the-details__summary {
@@ -41,6 +42,7 @@ body {
   background-size: cover;
   font-family: 'Kalam', cursive;
   text-align: center;
+  overflow: hidden;
   /* Leave enough space to display the absolutely positioned scroll indicator. */
   /* padding-bottom: 3em; */
 }
