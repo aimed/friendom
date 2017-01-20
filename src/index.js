@@ -2,18 +2,25 @@
 import seasons from './seasons.js'
 import Renderer from './Renderer.js'
 import fetchEpisodeDetails from './api.js'
+import { getEpisodesViewed, resetEpisodesViewed, addEpisodeViewed, episodesViewedFilter } from './storage.js'
 
 /**
  * All episodes.
  * Flatten the array to have equal chances for each episode.
  */
-const episodes = seasons.map(season => season.episodes).reduce((p, c) => [...p, ...c], [])
+const episodes =
+  seasons
+  .map(season => season.episodes)
+  .reduce((p, c) => [...p, ...c], [])
 
 /**
  * Selects a random element within the array.
  */
 const randomInArray = array => array[~~(Math.random() * array.length - 1)]
 
+/**
+ * Hides a given node using stage-hidden, hidden classes.
+ */
 const hideAnimated = node => {
   const listener = node.addEventListener('animationend', () => {
     node.removeEventListener('animationend', listener)
@@ -35,6 +42,14 @@ const render = Renderer({
  * Selects a random episode.
  */
 function selectEpisode () {
+  // Filter already viewed episodes.
+  // Reset if all episodes have been watched.
+  if (episodes.length === getEpisodesViewed().length) {
+    resetEpisodesViewed()
+  }
+  episodes.filter(episodesViewedFilter())
+
+  // Get a random episode.
   const selected = randomInArray(episodes)
 
   const episode = {
@@ -53,6 +68,7 @@ function selectEpisode () {
       summary: data.overview || 'No summary availiable ☹️.'
     })
     render(episodeExtended)
+    addEpisodeViewed(episode.season, episode.episode)
   })
 }
 
