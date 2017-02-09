@@ -22,7 +22,7 @@
     "eslint-plugin-standard": "^2.0.1",
     "surge": "^0.18.0",
     "webpack-dev-server": "^2.2.1"
-    "webpack": "^2.2.1",
+    "webpack": "^2.2.1"
   },
   "dependencies": {
     "whatwg-fetch": "^2.0.1"
